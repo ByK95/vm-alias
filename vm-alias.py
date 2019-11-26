@@ -2,7 +2,7 @@
 import subprocess
 import sys
 
-def start(vm_name,is_headless):
+def start(vm_name,is_headless = True):
     cmd = ["C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe","startvm",vm_name] 
     if is_headless:
         cmd.append('--type')
