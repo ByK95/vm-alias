@@ -16,12 +16,11 @@ def close(vm_name):
     return ["C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe", "controlvm", vm_name, "acpipowerbutton"]
 
 
-def listall(opt=0):
+def listall():
+    # FIXME
     procs = {p.pid: p for p in psutil.process_iter(
     ) if "VirtualBoxVM.exe" == p._name or "VBoxHeadless.exe" == p._name}
-    print(procs)
     machines = {procs[m].cmdline()[2]: 1 for m in procs}
-    print(machines)
 
 
 def wrapBrackets(lst):
