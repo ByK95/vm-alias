@@ -30,6 +30,12 @@ def _runcmd(cmd):
     subprocess.call(cmd)
 
 
+def teardown():
+    vms = listall()
+    for vm in vms:
+        _runcmd(close(vm))
+
+
 def wrapBrackets(lst):
     reserved = ['False', 'True']
     for i in range(len(lst)):
