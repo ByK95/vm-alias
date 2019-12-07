@@ -22,6 +22,12 @@ def listall():
     ) if "VirtualBoxVM.exe" == p.name() or "VBoxHeadless.exe" == p.name()}
     machines = {procs[m].cmdline()[2]: 1 for m in procs}
     print(machines)
+    return machines
+
+
+def _runcmd(cmd):
+    print(subprocess.list2cmdline(cmd))
+    subprocess.call(cmd)
 
 
 def wrapBrackets(lst):
@@ -40,5 +46,4 @@ if __name__ == "__main__":
     # print("{}({})".format(call, args))  # Debug
     cmd = eval("{}({})".format(call, args))
     if not call in exclude:
-        print(subprocess.list2cmdline(cmd))
-        subprocess.call(cmd)
+        _runcmd(cmd)
