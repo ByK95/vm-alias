@@ -19,8 +19,9 @@ def close(vm_name):
 def listall():
     # FIXME
     procs = {p.pid: p for p in psutil.process_iter(
-    ) if "VirtualBoxVM.exe" == p._name or "VBoxHeadless.exe" == p._name}
+    ) if "VirtualBoxVM.exe" == p.name() or "VBoxHeadless.exe" == p.name()}
     machines = {procs[m].cmdline()[2]: 1 for m in procs}
+    print(machines)
 
 
 def wrapBrackets(lst):
