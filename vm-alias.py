@@ -46,7 +46,7 @@ def wrapBrackets(lst):
 
 if __name__ == "__main__":
     # functions that should now run in command line
-    exclude = ['listall']
+    exclude = ['listall', 'teardown']
     call = sys.argv[1]
     args = ','.join(wrapBrackets(sys.argv[2:]))
     # print("{}({})".format(call, args))  # Debug
